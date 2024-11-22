@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Image from "next/image";
+
 import { Form, Field, ErrorMessage, useFormikContext } from "formik";
 
 import { Checkbox } from "@mui/material";
 import Link from "next/link";
-import { AiFillEyeInvisible } from "react-icons/ai";
+
 import { IoEyeOutline, IoEyeSharp } from "react-icons/io5";
 import PrimaryButton from "@/components/shared/buttons/PrimaryButton";
 
@@ -26,7 +26,10 @@ const FormInputs = () => {
   }
   const { values, errors, touched } = useFormikContext<formvalues>();
 
-  const formKeypressValidation = (e: any, value: any) => {
+  const formKeypressValidation = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    value: RegExp
+  ) => {
     const regex = new RegExp(value);
     if (!regex.test(e.key)) {
       e.preventDefault();
@@ -47,7 +50,9 @@ const FormInputs = () => {
             type="text"
             name="firstName"
             placeholder="First Name"
-            onKeyPress={(e: any) => formKeypressValidation(e, /^[A-Za-z\- ]$/)}
+            onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+              formKeypressValidation(e, /^[A-Za-z\- ]$/)
+            }
             className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
               errors.firstName && touched.firstName
                 ? "border-errorBorder"
@@ -73,7 +78,9 @@ const FormInputs = () => {
             type="text"
             name="lastName"
             placeholder="Last Name"
-            onKeyPress={(e: any) => formKeypressValidation(e, /^[A-Za-z\- ]$/)}
+            onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+              formKeypressValidation(e, /^[A-Za-z\- ]$/)
+            }
             className={`bg-transparent w-full h-12 mt-2 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
               errors.lastName && touched.lastName
                 ? "border-errorBorder"
@@ -208,7 +215,9 @@ const FormInputs = () => {
             type="tel"
             name="phoneNumber"
             placeholder="Enter Your Phone Number"
-            onKeyPress={(e: any) => formKeypressValidation(e, /^[0-9+\-() ]*$/)}
+            onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+              formKeypressValidation(e, /^[0-9+\-() ]*$/)
+            }
             className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
               errors.phoneNumber && touched.phoneNumber
                 ? "border-errorBorder"

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const BASEURL = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
-let APIKIT = axios.create({
+const APIKIT = axios.create({
   baseURL: BASEURL,
   timeout: 90000,
   headers: {

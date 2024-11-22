@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 //svg
 
@@ -13,11 +12,11 @@ interface Props {
   bgColor?: string;
   color?: string;
   toggleColor?: string;
-  logo?: any;
+  logo?: ReactNode;
 }
-const Navbar = ({ bgColor, color, logo, toggleColor }: Props) => {
+const Navbar = ({ toggleColor }: Props) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-  const [heading, setHeading] = useState("");
+  // const [heading, setHeading] = useState("");
   const router = useRouter();
 
   const navLinks = [
@@ -52,7 +51,7 @@ const Navbar = ({ bgColor, color, logo, toggleColor }: Props) => {
           className="w-5 flex flex-col gap-1 md:hidden"
           onClick={() => {
             setIsHamburgerOpen(!isHamburgerOpen);
-            setHeading("");
+            // setHeading("");
           }}
         >
           <div
@@ -111,7 +110,7 @@ const Navbar = ({ bgColor, color, logo, toggleColor }: Props) => {
 
         <button
           className="bg-green w-28 h-10 m-7 flex justify-center items-center rounded-3xl border-[1.5px] border-white"
-          onClick={() => router.push("")}
+          onClick={() => router.push("/auth/sign-in")}
         >
           Sign up
         </button>

@@ -1,8 +1,9 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
+import { ChangeEvent } from "react";
 
 type Props = {
   isChecked: boolean;
-  handleCheck: (value: any) => void;
+  handleCheck: (value: ChangeEvent<HTMLInputElement>) => void;
   name?: string;
   inputProps?: string;
   label?: string;

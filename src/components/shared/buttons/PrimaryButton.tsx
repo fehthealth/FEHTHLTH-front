@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ReactNode } from "react";
 
 export interface PrimaryButtonIprops {
   type?: "button" | "submit" | "reset";
@@ -12,8 +12,8 @@ export interface PrimaryButtonIprops {
   onClick?: () => void;
   disabled?: boolean;
   loading?: boolean;
-  icon?: any;
-  frontIcon?: any;
+  icon?: ReactNode;
+  frontIcon?: ReactNode;
   disabledColor?: string;
   rounded?: string;
 }

@@ -33,24 +33,22 @@ export interface ControlIProps {
   placeholder?: string;
   inputClass?: string;
   handleChange?: (
-    event: any
-    // React.ChangeEvent<
-    //   HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
 
   onFocus?: () => void;
   onBlur?: () => void;
-  inputRef?: any;
+  // inputRef?: any;
   value?: string | number;
   disabled?: boolean;
   error?: string;
   id?: string;
   variant?: string;
-  options?: optionsIprops[] | any;
-  setValue?: (value: string | number | any) => void;
+  options?: optionsIprops[];
+  setValue?: (value: string | number) => void;
   setFieldValue?: (
-    field: string | number | any,
-    value: string | number | any,
+    field: string | number,
+    value: string | number,
     shouldValidate?: boolean | undefined
   ) => void;
 }
@@ -68,7 +66,7 @@ const FormTextfield = ({
   handleChange,
   onFocus,
   onBlur,
-  inputRef,
+  // inputRef,
   required,
   id,
   variant,
@@ -102,7 +100,7 @@ const FormTextfield = ({
           autoComplete="off"
           onFocus={onFocus}
           onBlur={onBlur}
-          ref={inputRef}
+          // ref={inputRef}
           name={name}
           required={required && required}
           label={label}
@@ -149,7 +147,7 @@ const FormTextfield = ({
           onChange={handleChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          ref={inputRef}
+          // ref={inputRef}
           name={name}
           maxRows={4}
           multiline
@@ -169,7 +167,7 @@ const FormTextfield = ({
           onChange={handleChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          ref={inputRef}
+          // ref={inputRef}
           name={name}
           required={required && required}
           className="w-full h-28 px-3 py-2 text-secondary text-base rounded-lg border border-[#cbd1d6] resize-none outline-none hover:border-secondary focus:border-secondary focus:border-[1.5px]"
@@ -183,7 +181,7 @@ const FormTextfield = ({
           onChange={handleChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          ref={inputRef}
+          // ref={inputRef}
           name={name}
           type={type}
           required={required && required}
@@ -204,7 +202,7 @@ const FormTextfield = ({
           onChange={handleChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          ref={inputRef}
+          // ref={inputRef}
           variant="filled"
           name={name}
           type={type}
