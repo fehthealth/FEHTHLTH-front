@@ -5,7 +5,7 @@ import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-white w-full px-7 pt-10 pb-7 text-secondary border-t border-secondary">
+    <footer className="bg-white w-full px-7 pt-10 pb-7 text-secondary border-t border-secondary md:px-10">
       <div className="mt-14 flex flex-col justify-between md:flex-row ">
         <div className="mt-16 ml-0 flex flex-col md:mt-0 md:-ml-10 lg:ml-2">
           <h2 className="text-green text-xl font-montserrat font-semibold">
@@ -16,16 +16,23 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col">
+        <div className="mt-10 flex flex-col md:mt-0">
           <h2 className="text-green text-xl font-montserrat font-semibold">
             Company
           </h2>
           <div className="mt-5 text-secondary text-base font-grotesk flex items-start flex-col gap-5">
             <button>
+              <Link href="/research-lab"> Research Lab</Link>
+            </button>
+            <button>
+              <Link href="/blog">Blog</Link>
+            </button>
+            <button>
               <Link href="/about-us">About Us</Link>
             </button>
-            <button>Doctors</button>
-            <button>Support</button>
+            <button>
+              <Link href="/contact-us">Contact Us</Link>
+            </button>
           </div>
         </div>
       </div>

@@ -43,7 +43,7 @@ const page = () => {
       </div>
 
       <div className="w-full px-12 my-20">
-        <h1 className="text-3xl font-bold">Meet our Founders</h1>
+        <h1 className="text-3xl font-bold">Meet our Team</h1>
 
         <div className="mx-auto mt-10 flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-14">
           {founders.map((item, idx) => (

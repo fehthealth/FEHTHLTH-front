@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { toast } from "react-toastify";
+import { handlePopUp } from "./function";
 
 const BASEURL = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
@@ -26,15 +26,9 @@ APIKIT.interceptors.response.use(undefined, (error) => {
     statusCode === 404 ||
     statusCode === 409
   ) {
-    toast.error(error.response.data.message, {
-      position: "top-center",
-      theme: "colored",
-    });
+    handlePopUp(error.response.data.message, "error");
   } else {
-    toast.error("Something went wrong", {
-      position: "top-center",
-      theme: "colored",
-    });
+    handlePopUp("Something went wrong", "error");
   }
 });
 

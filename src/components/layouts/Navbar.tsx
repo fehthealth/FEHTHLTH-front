@@ -25,17 +25,21 @@ const Navbar = ({ toggleColor }: Props) => {
       route: "/",
     },
     {
-      text: "About us",
-      route: "/about-us",
+      text: "Virtual Consultations",
+      route: "/virtual-consultation",
     },
     {
-      text: "Contact us",
-      route: "/contact-us",
+      text: "Online Pharmacies",
+      route: "/online-pharmacy",
+    },
+    {
+      text: "Board Rooms",
+      route: "/board-room",
     },
   ];
 
   return (
-    <nav className="bg-primary w-full h-20 px-5 font-grotesk flex justify-center items-center md:h-20 lg:h-28 lg:px-12">
+    <nav className="bg-primary w-full h-20 px-5 text-secondary font-grotesk flex justify-center items-center md:h-20 lg:h-28 lg:px-12">
       <h2 className="text-3xl font-bold whitespace-nowrap">Feht Health</h2>
 
       <div className="w-full h-full flex justify-between items-center">
