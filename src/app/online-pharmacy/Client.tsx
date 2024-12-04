@@ -25,7 +25,7 @@ const OnlinePharmacyClient = () => {
         <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-8 lg:flex-row lg:gap-14">
           {pharmacies.map((item, idx) => (
             <div key={idx} className="flex flex-col gap-3">
-              <div className="w-52 h-60 border flex items-center justify-center border-primary rounded-lg md:w-72 md:h-80 ">
+              <div className="w-52 h-60 border flex items-center justify-center border-primary rounded-lg md:w-72 md:h-80">
                 <Image
                   src={item.image}
                   alt={`${item.name} logo`}
