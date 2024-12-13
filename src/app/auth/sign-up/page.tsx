@@ -1,5 +1,5 @@
 import React from "react";
-import Client from "../sign-in/Client";
+import Client from "./Client";
 
 const page = () => {
   return <Client />;

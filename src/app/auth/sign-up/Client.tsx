@@ -21,11 +21,15 @@ const Signup = () => {
     email: "",
     password: "",
     phoneNumber: "",
+    country: "",
+    userRole: "",
   };
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("This is a required field"),
     lastName: Yup.string().required("This is a required field"),
+    country: Yup.string().required("This is a required field"),
+    userRole: Yup.string().required("This is a required field"),
     email: Yup.string()
       .email("Please enter a valid email")
       .matches(
@@ -52,6 +56,8 @@ const Signup = () => {
     email: string;
     password: string;
     phoneNumber: string;
+    country: string;
+    userRole: string;
   }
 
   const handleSubmit = async (formData: formInputs) => {

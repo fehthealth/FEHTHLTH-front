@@ -80,7 +80,7 @@ const Client = () => {
                   control="input"
                   type="email"
                   name="email"
-                  value={formData.password}
+                  value={formData.email}
                   handleChange={handleChange}
                   variant="outlined"
                 />

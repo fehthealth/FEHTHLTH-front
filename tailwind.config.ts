@@ -12,6 +12,7 @@ export default {
         white: "#FFFFFF",
         primary: "#92DCE5",
         secondary: "#2B303A",
+        error: "#FF0000",
       },
 
       fontFamily: {

@@ -21,8 +21,8 @@ const FormInputs = () => {
     email: string;
     password: string;
     phoneNumber: string;
-    businessName: string;
-    numberOfLocations: string;
+    country: string;
+    userRole: string;
   }
   const { values, errors, touched } = useFormikContext<formvalues>();
 
@@ -151,13 +151,11 @@ const FormInputs = () => {
             </button>
           </div>
 
-          {errors.password === "Password cannot be more than 25 charaters" && (
-            <ErrorMessage
-              name="password"
-              component="p"
-              className="bg-errorBG w-80 mt-1 px-2 py-2 text-error text-sm rounded-lg"
-            />
-          )}
+          <ErrorMessage
+            name="password"
+            component="p"
+            className="bg-errorBG w-80 mt-1 px-2 py-2 text-error text-sm rounded-lg"
+          />
 
           {/* {values?.password.length > 0 && (
             <div className="mt-4 flex flex-col gap-4">
@@ -231,7 +229,73 @@ const FormInputs = () => {
           />
         </div>
 
-        <div className="mt-6 flex gap-2 items-center justify-center">
+        <div className="flex flex-col gap-1">
+          <label
+            htmlFor=""
+            className="text-secondary text-[12.4px] md:text-sm lg:text-base"
+          >
+            COUNTRY*
+          </label>
+          <Field
+            as="select"
+            type="text"
+            name="country"
+            placeholder="Select country"
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
+              errors.country && touched.country
+                ? "border-errorBorder"
+                : "border-inputBorder"
+            } `}
+          >
+            <option value="" disabled>
+              Select country
+            </option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="United States">United States</option>
+            <option value="Canada">Canada</option>
+            <option value="United Kingdom">United Kingdom</option>
+          </Field>
+          <ErrorMessage
+            name="country"
+            component="p"
+            className="bg-errorBG w-40 mt-1 px-2 py-2 text-error text-sm rounded-lg"
+          />
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <label
+            htmlFor=""
+            className="text-secondary text-[12.4px] md:text-sm lg:text-base"
+          >
+            COUNTRY*
+          </label>
+          <Field
+            as="select"
+            type="text"
+            name="userRole"
+            placeholder="Select role"
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
+              errors.userRole && touched.userRole
+                ? "border-errorBorder"
+                : "border-inputBorder"
+            } `}
+          >
+            <option value="" disabled>
+              Select role
+            </option>
+            <option value="Doctor">Doctor</option>
+            <option value="Pharmacist">Pharmacist</option>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+          </Field>
+          <ErrorMessage
+            name="userRole"
+            component="p"
+            className="bg-errorBG w-40 mt-1 px-2 py-2 text-error text-sm rounded-lg"
+          />
+        </div>
+
+        {/* <div className="mt-6 flex gap-2 items-center justify-center">
           <div className="-mt-3 md:mt-3 lg:-mt-3">
             <Checkbox
               className="w-4 h-4 mt-1 self-start"
@@ -255,16 +319,15 @@ const FormInputs = () => {
               Terms & Conditions
             </Link>
           </p>
-        </div>
+        </div> */}
 
         <div className="w-[150px] mx-auto mt-10">
-          <PrimaryButton
-            // onClick={handleSubmit}
-            bgColor="bg-secondary"
-            color="text-white"
-            text="Proceed"
-            disabledColor="disabled:bg-disabled"
-          />
+          <button
+            type="submit"
+            className="bg-secondary w-32 h-12 text-white font-bold flex justify-center items-center rounded-md"
+          >
+            Proceed
+          </button>
         </div>
       </Form>
     </>
