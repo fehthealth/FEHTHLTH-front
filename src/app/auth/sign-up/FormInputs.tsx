@@ -2,15 +2,10 @@ import { useState } from "react";
 
 import { Form, Field, ErrorMessage, useFormikContext } from "formik";
 
-import { Checkbox } from "@mui/material";
-import Link from "next/link";
-
 import { IoEyeOutline, IoEyeSharp } from "react-icons/io5";
-import PrimaryButton from "@/components/shared/buttons/PrimaryButton";
 
 const FormInputs = () => {
   const [revealPassword, setRevealPassword] = useState(false);
-  const [termsCheck, setTermsCheck] = useState(false);
 
   const regex =
     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
