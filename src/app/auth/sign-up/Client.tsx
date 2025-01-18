@@ -22,53 +22,44 @@ const Signup = () => {
     password: "",
     phoneNumber: "",
     country: "",
-    userRole: "",
+    roles: [],
   };
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("This is a required field"),
     lastName: Yup.string().required("This is a required field"),
     country: Yup.string().required("This is a required field"),
-    userRole: Yup.string().required("This is a required field"),
+    // roles: Yup.array()
+    // .of(Yup.string().required("User role is required"))
+    // .min(1, "Please select at least one role")
+    // .max(1, "Please select only one role"),
     email: Yup.string()
       .email("Please enter a valid email")
-      .matches(
-        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-        "Invalid email address"
-      )
       .required("This is a required field"),
     password: Yup.string()
-      .min(8, "Password must be at least 8 charaters")
-      .max(18, "Password cannot be more than 18 characters")
-      .matches(/[A-Z]/)
-      .matches(/[a-z]/)
-      .matches(/[0-9]/)
+      .min(8, "Password must be at least 8 characters")
+      .matches(/[A-Z]/, "Must include an uppercase letter")
+      .matches(/[a-z]/, "Must include a lowercase letter")
+      .matches(/[0-9]/, "Must include a number")
       .required("Please enter your password"),
     phoneNumber: Yup.string()
       .min(9, "Invalid phone number")
       .max(13, "Invalid phone number")
       .required("This is a required field"),
   });
-
-  interface formInputs {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    phoneNumber: string;
-    country: string;
-    userRole: string;
-  }
-
+  
   const handleSubmit = async (formData: formInputs) => {
     const payload = {
       ...formData,
       email: formData.email.toLowerCase(),
+      roles: [formData.roles],
     };
 
+    console.log("payload", payload);
+  
     try {
       const response = await authService.signup(payload);
-
+  
       if (response?.status === 201) {
         toast.success("Registration successful.", {
           position: "top-center",
@@ -77,11 +68,45 @@ const Signup = () => {
           hideProgressBar: true,
         });
         sessionStorage.setItem("user_email", formData.email);
+        router.push("/auth/sign-in");
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  interface formInputs {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    phoneNumber: string;
+    country: string;
+    roles: string[];
+  }
+
+  // const handleSubmit = async (formData: formInputs) => {
+  //   const payload = {
+  //     ...formData,
+  //     email: formData.email.toLowerCase(),
+  //   };
+
+  //   try {
+  //     const response = await authService.signup(payload);
+
+  //     if (response?.status === 201) {
+  //       toast.success("Registration successful.", {
+  //         position: "top-center",
+  //         className: "toast-success",
+  //         theme: "light",
+  //         hideProgressBar: true,
+  //       });
+  //       sessionStorage.setItem("user_email", formData.email);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <main className="w-full min-h-screen">

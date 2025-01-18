@@ -34,12 +34,12 @@ APIKIT.interceptors.response.use(undefined, (error) => {
 
 export const authService = {
   signup: (payload: object) => {
-    return APIKIT.post("/user/register", payload);
+    return APIKIT.post("/auth/register", payload);
   },
   activate: (payload: object) => {
-    return APIKIT.post("/user/activate", payload);
+    return APIKIT.post("/users/activate", payload);
   },
   login: (payload: object) => {
-    return APIKIT.post("/user/login", payload);
+    return APIKIT.post("/users/login", payload);
   },
 };

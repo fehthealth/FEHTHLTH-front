@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Providers } from "@/redux/provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -40,7 +41,8 @@ export default function RootLayout({
         style={{ maxWidth: "2000px" }}
       >
         <ToastContainer />
-        {children}
+
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

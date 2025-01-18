@@ -3,6 +3,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import PrimaryButton from "@/components/shared/buttons/PrimaryButton";
 import FormTextField from "@/components/shared/inputs/FormTextField";
+import { useUser } from "@/hooks/redux.hook";
 import { authService } from "@/utils/api";
 import { Divider } from "@mui/material";
 import { useRouter } from "next/navigation";
@@ -14,7 +15,10 @@ const Client = () => {
     email: "",
     password: "",
   });
+
   const [isLoading] = useState(false);
+
+  const { setUserDispatch } = useUser();
 
   const router = useRouter();
 
@@ -44,7 +48,10 @@ const Client = () => {
           theme: "light",
           hideProgressBar: true,
         });
-        // sessionStorage.setItem("user_email", formData.email);
+
+        setUserDispatch(response.data);
+        router.push("/admin/dashboard");
+        // sessionStorage.setItem("user", JSON.stringify(user));
       }
     } catch (error) {
       console.log(error);

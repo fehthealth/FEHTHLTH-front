@@ -17,7 +17,7 @@ const FormInputs = () => {
     password: string;
     phoneNumber: string;
     country: string;
-    userRole: string;
+    roles: string[];
   }
   const { values, errors, touched } = useFormikContext<formvalues>();
 
@@ -48,11 +48,10 @@ const FormInputs = () => {
             onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
               formKeypressValidation(e, /^[A-Za-z\- ]$/)
             }
-            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
-              errors.firstName && touched.firstName
-                ? "border-errorBorder"
-                : "border-inputBorder"
-            } `}
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${errors.firstName && touched.firstName
+              ? "border-errorBorder"
+              : "border-inputBorder"
+              } `}
           />
           <ErrorMessage
             name="firstName"
@@ -76,11 +75,10 @@ const FormInputs = () => {
             onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
               formKeypressValidation(e, /^[A-Za-z\- ]$/)
             }
-            className={`bg-transparent w-full h-12 mt-2 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
-              errors.lastName && touched.lastName
-                ? "border-errorBorder"
-                : "border-inputBorder"
-            } `}
+            className={`bg-transparent w-full h-12 mt-2 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${errors.lastName && touched.lastName
+              ? "border-errorBorder"
+              : "border-inputBorder"
+              } `}
           />
           <ErrorMessage
             name="lastName"
@@ -99,11 +97,10 @@ const FormInputs = () => {
             type="email"
             name="email"
             placeholder="Enter Your Email"
-            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
-              errors.email && touched.email
-                ? "border-errorBorder"
-                : "border-inputBorder"
-            } `}
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${errors.email && touched.email
+              ? "border-errorBorder"
+              : "border-inputBorder"
+              } `}
           />
           <ErrorMessage
             name="email"
@@ -119,13 +116,12 @@ const FormInputs = () => {
             PASSWORD*
           </label>
           <div
-            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] flex rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
-              errors.password && touched.password
-                ? "border-errorBorder"
-                : regex.test(values.password)
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] flex rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${errors.password && touched.password
+              ? "border-errorBorder"
+              : regex.test(values.password)
                 ? "border-green"
                 : "border-inputBorder"
-            } `}
+              } `}
           >
             <Field
               type={revealPassword ? "text" : "password"}
@@ -211,11 +207,10 @@ const FormInputs = () => {
             onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
               formKeypressValidation(e, /^[0-9+\-() ]*$/)
             }
-            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
-              errors.phoneNumber && touched.phoneNumber
-                ? "border-errorBorder"
-                : "border-inputBorder"
-            } `}
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${errors.phoneNumber && touched.phoneNumber
+              ? "border-errorBorder"
+              : "border-inputBorder"
+              } `}
           />
           <ErrorMessage
             name="phoneNumber"
@@ -236,11 +231,10 @@ const FormInputs = () => {
             type="text"
             name="country"
             placeholder="Select country"
-            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
-              errors.country && touched.country
-                ? "border-errorBorder"
-                : "border-inputBorder"
-            } `}
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${errors.country && touched.country
+              ? "border-errorBorder"
+              : "border-inputBorder"
+              } `}
           >
             <option value="" disabled>
               Select country
@@ -259,24 +253,21 @@ const FormInputs = () => {
 
         <div className="flex flex-col gap-1">
           <label
-            htmlFor=""
+            htmlFor="roles"
             className="text-secondary text-[12.4px] md:text-sm lg:text-base"
           >
-            COUNTRY*
+            ROLES*
           </label>
           <Field
             as="select"
-            type="text"
-            name="userRole"
-            placeholder="Select role"
-            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${
-              errors.userRole && touched.userRole
-                ? "border-errorBorder"
-                : "border-inputBorder"
-            } `}
+            name="roles"
+            className={`bg-transparent w-full h-12 px-4 text-secondary text-[12.4px] rounded-md border outline-none placeholder:text-textPrimary md:text-sm lg:text-base ${errors.roles && touched.roles
+              ? "border-errorBorder"
+              : "border-inputBorder"
+              } `}
           >
             <option value="" disabled>
-              Select role
+              Select a role
             </option>
             <option value="Doctor">Doctor</option>
             <option value="Pharmacist">Pharmacist</option>
@@ -284,7 +275,7 @@ const FormInputs = () => {
             <option value="Admin">Admin</option>
           </Field>
           <ErrorMessage
-            name="userRole"
+            name="roles"
             component="p"
             className="bg-errorBG w-40 mt-1 px-2 py-2 text-error text-sm rounded-lg"
           />
