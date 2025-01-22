@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { handlePopUp } from "./function";
+import { getToken } from "./helper";
 
 const BASEURL = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
@@ -41,5 +42,23 @@ export const authService = {
   },
   login: (payload: object) => {
     return APIKIT.post("/users/login", payload);
+  },
+};
+
+export const doctorService = {
+  getAllDoctors: () => {
+    return APIKIT.get(`/users`, {
+      headers: {
+        Authorization: `Bearer: ${getToken()}`,
+      },
+    });
+  },
+
+  getDoctorById: (userId: string) => {
+    return APIKIT.get(`/users/${userId}`, {
+      headers: {
+        Authorization: `Bearer: ${getToken()}`,
+      },
+    });
   },
 };

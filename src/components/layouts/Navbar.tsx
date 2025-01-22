@@ -7,6 +7,9 @@ import Link from "next/link";
 
 import { useRouter } from "next/navigation";
 import { IoClose } from "react-icons/io5";
+import { useUser } from "@/hooks/redux.hook";
+import PrimaryButton from "../shared/buttons/PrimaryButton";
+import { FaUserCircle } from "react-icons/fa";
 
 interface Props {
   bgColor?: string;
@@ -17,6 +20,9 @@ interface Props {
 const Navbar = ({ toggleColor }: Props) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   // const [heading, setHeading] = useState("");
+
+  const { user } = useUser();
+
   const router = useRouter();
 
   const navLinks = [
@@ -37,6 +43,8 @@ const Navbar = ({ toggleColor }: Props) => {
       route: "/board-room",
     },
   ];
+
+  const handleProfileRoute = () => {};
 
   return (
     <nav className="bg-primary w-full h-20 px-5 text-secondary font-grotesk flex justify-center items-center md:h-20 lg:h-28 lg:px-12">
@@ -84,41 +92,54 @@ const Navbar = ({ toggleColor }: Props) => {
           setHeading={setHeading}
         /> */}
 
-        <div className="ml-5 text-secondary text-base font-raleway flex gap-3 lg:ml-12">
+        {Object.keys(user).length === 0 ? (
+          <div className="ml-5 text-secondary text-base font-raleway flex gap-3 lg:ml-12">
+            <button
+              className="bg-transparent w-28 h-10 text-green flex justify-center items-center rounded-full border-[1.5px] border-secondary"
+              onClick={() => router.push("/auth/sign-in")}
+            >
+              Sign in
+            </button>
+            <button
+              className="bg-green w-28 h-10 flex justify-center items-center rounded-full border-[1.5px] border-secondary"
+              onClick={() => router.push("/auth/sign-up")}
+            >
+              Sign up
+            </button>
+          </div>
+        ) : (
+          <PrimaryButton
+            text="Profile"
+            bgColor="bg-secondary"
+            rounded="rounded-full"
+            color="text-primary"
+            icon={<FaUserCircle />}
+            onClick={handleProfileRoute}
+          />
+        )}
+      </div>
+      {/* mobile */}
+      {Object.keys(user).length === 0 && (
+        <div
+          className={`bg-white w-full min-h-screen fixed top-0 flex flex-col duration-500 z-40 md:hidden ${
+            isHamburgerOpen ? "left-0" : "-left-full"
+          }`}
+        >
+          <div className="w-full h-20 px-5 flex justify-between items-center">
+            <IoClose
+              className="text-secondary ml-auto"
+              onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
+            />
+          </div>
+
           <button
-            className="bg-transparent w-28 h-10 text-green flex justify-center items-center rounded-full border-[1.5px] border-secondary"
+            className="bg-green w-28 h-10 m-7 flex justify-center items-center rounded-3xl border-[1.5px] border-white"
             onClick={() => router.push("/auth/sign-in")}
-          >
-            Sign in
-          </button>
-          <button
-            className="bg-green w-28 h-10 flex justify-center items-center rounded-full border-[1.5px] border-secondary"
-            onClick={() => router.push("/auth/sign-up")}
           >
             Sign up
           </button>
         </div>
-      </div>
-      {/* mobile */}
-      <div
-        className={`bg-white w-full min-h-screen fixed top-0 flex flex-col duration-500 z-40 md:hidden ${
-          isHamburgerOpen ? "left-0" : "-left-full"
-        }`}
-      >
-        <div className="w-full h-20 px-5 flex justify-between items-center">
-          <IoClose
-            className="text-secondary ml-auto"
-            onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
-          />
-        </div>
-
-        <button
-          className="bg-green w-28 h-10 m-7 flex justify-center items-center rounded-3xl border-[1.5px] border-white"
-          onClick={() => router.push("/auth/sign-in")}
-        >
-          Sign up
-        </button>
-      </div>
+      )}
     </nav>
   );
 };

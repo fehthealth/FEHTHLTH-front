@@ -5,10 +5,10 @@ import PrimaryButton from "@/components/shared/buttons/PrimaryButton";
 import FormTextField from "@/components/shared/inputs/FormTextField";
 import { useUser } from "@/hooks/redux.hook";
 import { authService } from "@/utils/api";
+import { handlePopUp } from "@/utils/function";
 import { Divider } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 
 const Client = () => {
   const [formData, setFormData] = useState({
@@ -42,15 +42,10 @@ const Client = () => {
       const response = await authService.login(payload);
 
       if (response?.status === 201) {
-        toast.success("Login successful.", {
-          position: "top-center",
-          className: "toast-success",
-          theme: "light",
-          hideProgressBar: true,
-        });
+        handlePopUp("Login successful.", "success");
 
         setUserDispatch(response.data);
-        router.push("/admin/dashboard");
+        router.push("/homepage");
         // sessionStorage.setItem("user", JSON.stringify(user));
       }
     } catch (error) {
