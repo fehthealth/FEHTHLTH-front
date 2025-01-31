@@ -35,7 +35,7 @@ const page = () => {
             }
           />
         </div>
-        <div className="mt-6 flex flex-col items-center">
+        {/* <div className="mt-6 flex flex-col items-center">
           <p className="">
             Have questions or need assistance? We&apos;re here to help!{" "}
           </p>
@@ -47,7 +47,7 @@ const page = () => {
           >
             Please reach out to us.
           </Link>
-        </div>{" "}
+        </div>{" "} */}
       </div>
     </div>
   );
