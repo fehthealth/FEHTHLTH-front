@@ -2,8 +2,11 @@ import React from "react";
 import Image from "next/image";
 
 import patientImage from "../../../public/assets/patient-image.png";
+import { useUser } from "@/hooks/redux.hook";
 
 const PatientScreen = () => {
+  const { user } = useUser();
+
   return (
     <div className="bg-white p-8 font-raleway text-primary min-h-screen">
       {/* Header */}
@@ -26,7 +29,7 @@ const PatientScreen = () => {
           <div className="p-6 space-y-4">
             <div className="flex justify-between">
               <span>Profile</span>
-              <span>John Doe</span>
+              <span>{`${user.firstName} ${user.lastName}`}</span>
             </div>
             <div className="flex justify-between">
               <span>Promo</span>

@@ -13,7 +13,7 @@ const page = () => {
         <Image src={fehtHealthLogo} alt="feht logo" className="w-80" />
         <h1 className="mt-10 text-5xl font-grotesk font-bold">Coming Soon!!</h1>
         {/* <h3 className="mt-6 text-2xl">We are almost there</h3> */}
-        <p className="mt-5 max-w-lg flex justify-center items-center text-center">
+        <p className="mt-5 max-w-md">
           Welcome to FEHTHealth, where we bridge the gap between patients and
           doctors worldwide. Our platform empowers you to connect with top
           healthcare professionals from the comfort of your home—anytime,
@@ -35,7 +35,7 @@ const page = () => {
             }
           />
         </div>
-        {/* <div className="mt-6 flex flex-col items-center">
+        <div className="mt-6 flex flex-col items-center">
           <p className="">
             Have questions or need assistance? We&apos;re here to help!{" "}
           </p>
@@ -47,7 +47,7 @@ const page = () => {
           >
             Please reach out to us.
           </Link>
-        </div>{" "} */}
+        </div>{" "}
       </div>
     </div>
   );

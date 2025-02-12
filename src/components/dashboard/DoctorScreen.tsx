@@ -2,14 +2,17 @@ import React from "react";
 import Image from "next/image";
 
 import doctorsImage from "../../../public/assets/doctors-image.png";
+import { useUser } from "@/hooks/redux.hook";
 
 const Dashboard = () => {
+  const { user } = useUser();
+
   return (
     <div className="bg-white p-8 font-raleway text-primary min-h-screen">
       {/* Header */}
       <header className="flex justify-between items-center mb-10">
         <div>
-          <h1 className="text-4xl font-bold">Dr. John Doe</h1>
+          <h1 className="text-4xl font-bold">{`${user.firstName} ${user.lastName}`}</h1>
         </div>
         <div className="flex gap-6">
           <button className="bg-secondary text-white px-6 py-3 rounded-lg shadow-md">
