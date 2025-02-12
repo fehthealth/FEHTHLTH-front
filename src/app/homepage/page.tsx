@@ -61,7 +61,7 @@ const Home = () => {
     <div className="bg-white min-h-screen text-secondary">
       <Navbar />
       <div className="w-full px-12 my-20">
-        <h1 className="text-3xl font-bold">Top</h1>
+        {/* <h1 className="text-3xl font-bold">Top</h1> */}
         <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-8 lg:flex-row lg:gap-14">
           {doctors.map((item: any, idx) => (
             <div
@@ -78,7 +78,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-full px-12 my-20">
+      {/* <div className="w-full px-12 my-20">
         <h1 className="text-3xl font-bold">Book With</h1>
         <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-8 lg:flex-row lg:gap-14">
           {doctors.map((item: any, idx) => (
@@ -94,7 +94,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="w-full px-12 my-20">
         <h1 className="text-3xl font-bold">Top</h1>
