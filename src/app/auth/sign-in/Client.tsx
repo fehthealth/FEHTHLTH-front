@@ -43,10 +43,9 @@ const Client = () => {
 
       if (response?.status === 201) {
         handlePopUp("Login successful.", "success");
-
         setUserDispatch(response.data);
-        router.push("/homepage");
-        // sessionStorage.setItem("user", JSON.stringify(user));
+        router.push("/dashboard");
+        //sessionStorage.setItem("user", JSON.stringify(user));
       }
     } catch (error) {
       console.log(error);

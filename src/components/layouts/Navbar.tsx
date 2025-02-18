@@ -12,12 +12,13 @@ import PrimaryButton from "../shared/buttons/PrimaryButton";
 import { FaUserCircle } from "react-icons/fa";
 
 interface Props {
+  showLogin?: boolean;
   bgColor?: string;
   color?: string;
   toggleColor?: string;
   logo?: ReactNode;
 }
-const Navbar = ({ toggleColor }: Props) => {
+const Navbar = ({ toggleColor, showLogin }: Props) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   // const [heading, setHeading] = useState("");
 
@@ -90,7 +91,7 @@ const Navbar = ({ toggleColor }: Props) => {
           setHeading={setHeading}
         /> */}
 
-        {Object.keys(user).length === 0 ? (
+        {showLogin ? (
           <div className="ml-5 text-secondary text-base font-raleway flex gap-3 lg:ml-12">
             <button
               className="bg-transparent w-28 h-10 text-green flex justify-center items-center rounded-full border-[1.5px] border-secondary"
@@ -105,7 +106,7 @@ const Navbar = ({ toggleColor }: Props) => {
               Sign up
             </button>
           </div>
-        ) : (
+        ) : Object.keys(user).length > 0 ? (
           <PrimaryButton
             text="Dashboard"
             bgColor="bg-secondary"
@@ -114,7 +115,7 @@ const Navbar = ({ toggleColor }: Props) => {
             icon={<FaUserCircle />}
             onClick={() => router.push("/admin/dashboard")}
           />
-        )}
+        ) : null}
       </div>
       {/* mobile */}
       {Object.keys(user).length === 0 && (

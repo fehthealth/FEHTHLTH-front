@@ -45,30 +45,55 @@ const Home = () => {
     try {
       const response = await doctorService.getAllDoctors();
       // Filter users whose roles include "Doctor"
-      const doctors = response.data.users.filter(
-        (user: { roles: string | string[] }) => user.roles.includes("Doctor")
-      );
+      const doctors = response.data.users.filter((user: { roles: string | string[]; }) => user.roles.includes('Doctor'));
       console.log("Doctors:", doctors);
-      setDoctors(doctors); // Set only the filtered doctors
+      setDoctors(doctors);  // Set only the filtered doctors
     } catch (error) {
       console.log(error);
     }
   };
-
+  
   useEffect(() => {
     getDoctors();
   }, []);
 
   return (
     <div className="bg-white min-h-screen text-secondary">
-      <Navbar showLogin={true} />
+      <Navbar />
+      <div className="w-full px-12 my-20">
+        <h1 className="text-3xl font-bold">Top</h1>
+        <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-8 lg:flex-row lg:gap-14">
+          {doctors.map((item: any, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col gap-3 cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              onClick={() => {
+                router.push(`/doctor/${item.userId}`);
+              }}
+            >
+              <div className="w-52 h-60 border border-primary rounded-lg md:w-72 md:h-80 bg-gray-100"></div>
+              <p className="font-bold">{item.firstName} {item.lastName}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <div className="w-full px-12 my-20 flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold">Welcome! Book an Appointment</h1>
-        <p className="max-w-lg mt-4 text-lg text-center text-gray-600">
-          Find the right doctor and schedule your visit with ease. We're here to
-          connect you with top healthcare professionals for your needs.
-        </p>
+      <div className="w-full px-12 my-20">
+        <h1 className="text-3xl font-bold">Book With</h1>
+        <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-8 lg:flex-row lg:gap-14">
+          {doctors.map((item: any, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col gap-3 cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              onClick={() => {
+                router.push(`/doctor/${item.userId}`);
+              }}
+            >
+              <div className="w-52 h-60 border border-primary rounded-lg md:w-72 md:h-80 bg-gray-100"></div>
+              <p className="font-bold">{item.firstName} {item.lastName}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* <div className="w-full px-12 my-20">
