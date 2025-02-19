@@ -108,12 +108,12 @@ const Navbar = ({ toggleColor, showLogin }: Props) => {
           </div>
         ) : Object.keys(user).length > 0 ? (
           <PrimaryButton
-            text="Dashboard"
+            text="Profile"
             bgColor="bg-secondary"
             rounded="rounded-full"
             color="text-primary"
             icon={<FaUserCircle />}
-            onClick={() => router.push("/admin/dashboard")}
+            onClick={() => router.push("/admin/profile")}
           />
         ) : null}
       </div>
