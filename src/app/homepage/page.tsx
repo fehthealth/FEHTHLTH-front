@@ -66,7 +66,7 @@ const Home = () => {
       <div className="w-full px-12 my-20 flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold">Welcome! Book an Appointment</h1>
         <p className="max-w-lg mt-4 text-lg text-center text-gray-600">
-          Find the right doctor and schedule your visit with ease. We're here to
+          Find the right doctor and schedule your visit with ease. We&apos;re here to
           connect you with top healthcare professionals for your needs.
         </p>
       </div>
