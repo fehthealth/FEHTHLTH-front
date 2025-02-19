@@ -1,7 +1,6 @@
 "use client";
 import Footer from "@/components/layouts/Footer";
 import Navbar from "@/components/layouts/Navbar";
-import { useUser } from "@/hooks/redux.hook";
 import { doctorService } from "@/utils/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,13 +14,13 @@ const Home = () => {
 
   const router = useRouter();
 
-  const stacticDoctors = [
-    { id: 1, name: "Doctor AB", image: "" },
-    { id: 2, name: "Doctor Clef", image: "" },
-    { id: 3, name: "Doctor Ayodeji", image: "" },
-    { id: 4, name: "Olujide Olubiyi", image: "" },
-    { id: 5, name: "Olujide Olubiyi", image: "" },
-  ];
+  // const stacticDoctors = [
+  //   { id: 1, name: "Doctor AB", image: "" },
+  //   { id: 2, name: "Doctor Clef", image: "" },
+  //   { id: 3, name: "Doctor Ayodeji", image: "" },
+  //   { id: 4, name: "Olujide Olubiyi", image: "" },
+  //   { id: 5, name: "Olujide Olubiyi", image: "" },
+  // ];
 
   const whatWeOffer = [
     {

@@ -15,13 +15,13 @@ const Home = () => {
 
   const router = useRouter();
 
-  const stacticDoctors = [
-    { id: 1, name: "Doctor AB", image: "" },
-    { id: 2, name: "Doctor Clef", image: "" },
-    { id: 3, name: "Doctor Ayodeji", image: "" },
-    { id: 4, name: "Olujide Olubiyi", image: "" },
-    { id: 5, name: "Olujide Olubiyi", image: "" },
-  ];
+  // const stacticDoctors = [
+  //   { id: 1, name: "Doctor AB", image: "" },
+  //   { id: 2, name: "Doctor Clef", image: "" },
+  //   { id: 3, name: "Doctor Ayodeji", image: "" },
+  //   { id: 4, name: "Olujide Olubiyi", image: "" },
+  //   { id: 5, name: "Olujide Olubiyi", image: "" },
+  // ];
 
   const whatWeOffer = [
     {
