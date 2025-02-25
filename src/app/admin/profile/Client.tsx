@@ -29,7 +29,7 @@ const Client = () => {
   const isDoctor =
     Array.isArray(user.user.roles) && user.user.roles.includes("Doctor");
   const isPharmacist =
-    Array.isArray(user.user.roles) && user.user.roles.includes("Pharmacist");
+    Array.isArray(user.user.roles) && user.user.roles.includes("User");
 
   return (
     <main>
