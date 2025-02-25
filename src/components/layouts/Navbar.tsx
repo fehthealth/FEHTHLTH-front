@@ -29,12 +29,12 @@ const Navbar = ({ toggleColor, showLogin }: Props) => {
   const navLinks = [
     {
       text: "Home",
-      route: "/",
+      route: "/homepage",
     },
-    {
-      text: "Virtual Consultations",
-      route: "/virtual-consultation",
-    },
+    // {
+    //   text: "Virtual Consultations",
+    //   route: "/virtual-consultation",
+    // },
     {
       text: "Online Pharmacies",
       route: "/online-pharmacy",
